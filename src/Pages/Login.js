@@ -53,18 +53,19 @@ function Login() {
       name: name,
       email: email,
       password: password,
-      userTypes: userType
+      userType: userType
     };
-    console.log(data);
+
     userSignup(data).then((response) => {
       try {
-        console.log(response);
-        console.log(data);
+        // console.log(response);
+      
         setMessage(`Sign up sucess`)
         setShowSignup(!showSignup)
+        console.log(data);
       } catch (error) {
         console.log(error);
-        setMessage(error)
+        setMessage(error.data.message)
       }
       // console.log(data);
       // console.log(response);
@@ -95,7 +96,7 @@ function Login() {
         else navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data.message);
         setMessage(error.response.data.message);
       });
   };

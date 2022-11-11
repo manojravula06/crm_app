@@ -24,9 +24,7 @@ export async function userUpdation(userId, selectedCurrUser) {
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },
-    },
-    {
-      userId: localStorage.getItem("userId"),
     }
+   
   );
 }
